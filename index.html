@@ -10,9 +10,13 @@
 </head>
 
 <body>
-  <header
-    class="text-5xl font-bold tracking-tight md:text-6xl xl:text-7xl text-[hsl(218,81%,95%)] text-center bg-gradient-to-b from-yellow-200 to-yellow-300">
-    <h1 class="p-5 shadow-lg dark:shadow-black/20">Dog Finder</h1>
+  <header class="bg-gradient-to-b from-yellow-200 to-yellow-300">
+    <!-- <nav class="flex justify-end p-3 text-lg list-none">
+      <li><a href="#">Contact</a></li>
+    </nav> -->
+    <h1
+      class="p-5 shadow-lg dark:shadow-black/20 text-5xl font-bold tracking-tight md:text-6xl xl:text-7xl text-[hsl(218,81%,95%)] text-center ">
+      Dog Finder</h1>
   </header>
   <main>
     <section class="px-6 py-12 text-center md:px-12 lg:text-left">
@@ -23,14 +27,14 @@
             <h2 class="mt-0 mb-16 text-5xl font-bold tracking-tight md:text-6xl xl:text-7xl text-[hsl(218,81%,95%)]">
               Adopt your new <br /><span class="text-[hsl(218,81%,75%)]">bestfriend today!</span>
             </h2>
-            <form class="w-full mt-12">
+            <form class="w-full mt-12" id="search-form">
               <div class="relative flex p-1 rounded-full bg-white border border-yellow-200 shadow-md md:p-2">
-                <select class="hidden p-3 rounded-full bg-transparent md:block md:p-4" name="domain" id="domain">
+                <!-- <select class="hidden p-3 rounded-full bg-transparent md:block md:p-4" name="domain" id="domain">
                   <option value="dogs">Dogs</option>
                   <option value="cats">Cats</option>
-                </select>
+                </select> -->
                 <input placeholder="Dog Breed" class="w-full p-4 rounded-full" type="text" id="dog-name">
-                <button type="button" title="Find my bestfriend!"
+                <button type="button" title="Find my bestfriend!" id="search"
                   class="ml-auto py-3 px-6 rounded-full text-center transition bg-gradient-to-b from-yellow-200 to-yellow-300 hover:to-red-300 active:from-yellow-400 focus:from-red-400 md:px-12">
                   <span class="hidden text-yellow-900 font-semibold md:block">
                     Search
@@ -52,8 +56,7 @@
       </div>
     </section>
     <!-- Featured nearby dogs -->
-    <section class="flex items-center bg-gradient-to-b from-gray-200 to-yellow-300 w-screen min-h-screen"
-      style="font-family: 'Muli', sans-serif;">
+    <section class="flex items-center bg-gradient-to-b from-gray-200 to-yellow-300 w-screen min-h-screen">
       <div class="container ml-auto mr-auto flex flex-wrap items-start">
         <div class="w-full pl-5 lg:pl-2 mb-4 mt-4">
           <h1 class="text-5xl font-bold tracking-tight md:text-6xl xl:text-7xl text-[hsl(218,81%,95%)] text-center">
@@ -64,7 +67,8 @@
           <div
             class="bg-white rounded-lg m-h-64 p-2 transform hover:translate-y-2 hover:shadow-xl transition duration-300">
             <figure class="mb-2">
-              <img src="./assets/images/placeholder-1.jpg" alt="Buddy" class="h-64 mx-auto lg:w-full md:w-full" id="dogImage"/>
+              <img src="./assets/images/placeholder-1.jpg" alt="Buddy" class="h-64 mx-auto lg:w-full md:w-full"
+                id="dogImage" />
             </figure>
             <div class="rounded-lg p-4 bg-gray-700 flex flex-col">
               <div>
@@ -203,6 +207,9 @@
       </div>
     </div>
   </footer>
+  <script src="./assets/js/homepage.js"></script>
+  <script src="./assets/js/localstorage.js"></script>
+
 </body>
 
 </html>
