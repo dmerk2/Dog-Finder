@@ -1,0 +1,17 @@
+#contact-hero {
+  background-position: 70%;
+  background-image: url('https://www.sdhumane.org/assets/images/standard/adopt-me.jpg');
+  height: 500px;
+}
+
+#about-hero {
+  background-position: 70%;
+  background-image: url("https://www.maricopa.gov/ImageRepository/Document?documentID=84591");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 500px;
+}
+
+h1, h2 {
+  font-family: Helvetica, sans-serif;
+}
