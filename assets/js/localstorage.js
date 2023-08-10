@@ -1,13 +1,13 @@
-let dogName = document.getElementById("dog-name");
+let zipcode = document.getElementById("zipcode");
 let search = document.getElementById("search");
 let searchHistory = [];
 
 const saveToLocalStorage = () => {
   const recentSearches = {
-    breed: dogName.value,
+    zipcode: zipcode.value,
   };
   searchHistory.push(recentSearches)
-  localStorage.setItem("breed", JSON.stringify(recentSearches)) || [];
+  localStorage.setItem("zipcode", JSON.stringify(recentSearches)) || [];
   console.log(recentSearches, searchHistory);
 };
 
