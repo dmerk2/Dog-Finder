@@ -9,14 +9,17 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="icon" type="image/x-icon" href="./assets/images/favicon.png">
 </head>
 
 <body class="h-screen">
 
   <header class="bg-gradient-to-b from-yellow-200 to-yellow-300 py-4 shadow-md">
-    <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-2xl font-semibold">Dog Finder</h1>
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center">
+      <div class="flex items-center mb-4 sm:mb-0">
+        <h1 class="text-2xl font-semibold">Dog Finder</h1>
+      </div>
       <nav class="space-x-4">
         <a href="./index.html" class="text-gray-600 hover:text-gray-800">Home</a>
         <a href="./facts.html" class="text-gray-600 hover:text-gray-800">Dog Facts</a>
@@ -25,15 +28,19 @@
       </nav>
     </div>
   </header>
+
   <main>
     <section class="relative overflow-hidden bg-cover bg-no-repeat" id="contact-hero">
       <div
         class="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-[hsla(0,0%,0%,0.75)] bg-fixed">
         <div class="flex h-full items-center justify-center">
-          <div class="px-6 text-center text-white md:px-12">
-            <h1 class="mt-2 mb-16 text-5xl font-bold tracking-tight md:text-6xl xl:text-7xl">
-              Have a Question?
-            </h1>
+          <div class="bg-black opacity-50 w-full h-full absolute"></div>
+          <div class="text-center text-white md:px-12 py-12 md:py-20 absolute z-10">
+            <h1 class="mt-2 mb-8 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">Have a Question?</h1>
+            <a href="#contact"
+              class="text-black py-3 px-6 rounded-full text-center transition bg-gradient-to-b from-yellow-200 to-yellow-300 hover:to-red-300 active:from-yellow-400 focus:from-red-400 md:px-12">
+              Message Us 🢃
+            </a>
           </div>
         </div>
       </div>
@@ -55,7 +62,7 @@
             </li>
           </ul>
         </div>
-        <div>
+        <div id="contact">
           <h2 class="text-xl font-semibold mb-2">Send a Message</h2>
           <form class="space-y-4">
             <div>
