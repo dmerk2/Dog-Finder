@@ -5,13 +5,31 @@
 }
 
 #about-hero {
-  background-position: 70%;
+  background-position: 90%;
   background-image: url("https://www.maricopa.gov/ImageRepository/Document?documentID=84591");
+  background-repeat: no-repeat;
+  background-size: cover; /* Adjust background-size to maintain aspect ratio */
+  height: 500px;
+}
+
+
+#facts-hero {
+  background-position: 70%;
+  background-image: url("https://s7d1.scene7.com/is/image/scom/NMADD_hero_xl_02-1?$1100j$");
   background-repeat: no-repeat;
   background-size: cover;
   height: 500px;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-family: Helvetica, sans-serif;
+}
+
+main {
+  min-height: 80vh;
+}
+
+footer {
+  margin-top: auto;
 }
