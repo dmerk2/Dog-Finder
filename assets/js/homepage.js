@@ -13,6 +13,7 @@ const xBtnModal = document.getElementById("x-btn");
 
 searchButton.addEventListener("click", async () => {
   const zipcode = zipcodeInput.value;
+  // localStorage.setItem("zipcode", zipcode);
   // Toggle Modal
   modal.classList.toggle("hidden");
   modal.classList.toggle("flex");
@@ -20,7 +21,7 @@ searchButton.addEventListener("click", async () => {
   // If zip code is valid display the modal else display the search results
   if (isValidUSZipCode(zipcode)) {
     toggleModal();
-  } 
+  }
 
   const requestData = {
     data: {
@@ -49,8 +50,6 @@ searchButton.addEventListener("click", async () => {
     console.log(data);
   } catch (error) {
     console.error("Error:", error);
-    // const resultDiv = document.getElementById('result');
-    // resultDiv.innerHTML = '<p>Invalid Zip Code</p>';
   }
 });
 
@@ -72,14 +71,26 @@ function displayResults(results) {
 
   results.forEach((result) => {
     const imageUrl = result.attributes.pictureThumbnailUrl;
+    // Remove the parameter ?width=100 for better viewing and clarity on webpage
+    const baseURL = imageUrl.split("?")[0];
     const name = result.attributes.name;
     const breedPrimary = result.attributes.breedPrimary;
-    const ageGroup = result.attributes.ageGroup;
-    const adoptionFee = result.attributes.adoptionFeeString;
+    // If ageGroup displays undefined, display nothing
+    const ageGroup = result.attributes.ageGroup
+      ? result.attributes.ageGroup
+      : "";
+    // If adoptionFee displays undefined, display nothing
+    const adoptionFee = result.attributes.adoptionFeeString
+      ? result.attributes.adoptionFeeString
+      : "";
     const distance = result.attributes.distance;
 
-    dogImage.src = imageUrl;
-    dogInfo.innerHTML = `<p><strong>${name}</strong></p><p><strong>Breed:</strong> ${breedPrimary}</p><p><strong>Age Group:</strong> ${ageGroup}</p><p><strong>Adoption Fee:</strong> ${adoptionFee}</p><p><strong>Distance (miles):</strong> ${distance}</p>`;
+    dogImage.src = baseURL;
+    dogInfo.innerHTML = `<h2 class="text-xl"><strong>${name}</strong></h2>
+    <p><strong>Breed:</strong> ${breedPrimary}</p>
+    <p><strong>Age Group:</strong> ${ageGroup}</p>
+    <p><strong>Adoption Fee:</strong> ${adoptionFee}</p>
+    <p><strong>Distance (miles):</strong> ${distance}</p>`;
   });
 }
 
@@ -89,4 +100,3 @@ form.addEventListener("submit", (e) => {
 
 closeModal.addEventListener("click", toggleModal);
 xBtnModal.addEventListener("click", toggleModal);
-
