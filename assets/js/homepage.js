@@ -3,9 +3,12 @@ const baseUrl = "https://api.rescuegroups.org/v5";
 
 const searchButton = document.getElementById("search");
 const zipcodeInput = document.getElementById("zipcode");
-const dogInfo = document.getElementById("dog-info");
-const dogImage = document.getElementById("dogImage");
+//const dogInfo = document.getElementById("dog-info");
+//const dogImage = document.getElementById("dogImage");
+
 const form = document.getElementById("search-form");
+
+
 
 const modal = document.getElementById("modal");
 const closeModal = document.getElementById("close-modal");
@@ -14,12 +17,12 @@ const xBtnModal = document.getElementById("x-btn");
 searchButton.addEventListener("click", async () => {
   const zipcode = zipcodeInput.value;
   // Toggle Modal
-  modal.classList.toggle("hidden");
-  modal.classList.toggle("flex");
+//   modal.classList.toggle("hidden");
+//   modal.classList.toggle("flex");
 
   // If zip code is valid display the modal else display the search results
   if (isValidUSZipCode(zipcode)) {
-    toggleModal();
+    // toggleModal();
   } 
 
   const requestData = {
@@ -44,7 +47,10 @@ searchButton.addEventListener("click", async () => {
       }
     );
 
+
     const data = await response.json();
+    console.log("data");
+    console.log(data.data);
     displayResults(data.data);
     console.log(data);
   } catch (error) {
@@ -67,10 +73,12 @@ const toggleModal = () => {
 };
 
 function displayResults(results) {
-  dogImage.src = "";
+  var images= document.querySelectorAll("dog-image").src = "";
+  var dogInfo= document.querySelectorAll("dogInfo");
   dogInfo.innerHTML = "";
 
-  results.forEach((result) => {
+  results.forEach((result, imgIndex) => {
+    //console.log(index);
     const imageUrl = result.attributes.pictureThumbnailUrl;
     const name = result.attributes.name;
     const breedPrimary = result.attributes.breedPrimary;
@@ -78,15 +86,29 @@ function displayResults(results) {
     const adoptionFee = result.attributes.adoptionFeeString;
     const distance = result.attributes.distance;
 
-    dogImage.src = imageUrl;
+    var imgIndex = 0;
+    
+
+    //dogImage.src = imageUrl;
+
+    images.scr = imageUrl;
+   
+    
     dogInfo.innerHTML = `<p><strong>${name}</strong></p><p><strong>Breed:</strong> ${breedPrimary}</p><p><strong>Age Group:</strong> ${ageGroup}</p><p><strong>Adoption Fee:</strong> ${adoptionFee}</p><p><strong>Distance (miles):</strong> ${distance}</p>`;
+    //i = 0; 1 < images[index].length; i++;
+      //images.src = imageURL(i);
+       
+    
+
+   
   });
 }
+
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 });
 
-closeModal.addEventListener("click", toggleModal);
-xBtnModal.addEventListener("click", toggleModal);
+//closeModal.addEventListener("click", toggleModal);
+//xBtnModal.addEventListener("click", toggleModal);
 

@@ -12,20 +12,6 @@
 </head>
 
 <body>
-  <!-- Modal -->
-  <section class="fixed hidden inset-0 justify-center items-center z-50" id="modal">
-    <!-- <div class="bg-black opacity-50 absolute inset-0"></div> -->
-    <div class="bg-gray-100 max-w-sm p-3 rounded mx-auto">
-      <div class="flex justify-between font-bold mb-3">
-        <h4 class="text-lg">Please Enter Valid Zip Code</h4>
-        <p id="x-btn" class="cursor-pointer hover:bg-red-300 rounded-full py-1 px-2">X</p>
-      </div>
-      <p class="my-2">You entered an invalid zipcode. Please try again.</p>
-      <button id="close-modal"
-        class="hover:bg-red-300 py-1 px-2 rounded bg-white shadow-md border-gray-100 float-right">Close</button>
-    </div>
-  </section>
-
   <header class="bg-gradient-to-b from-yellow-200 to-yellow-300 py-4 shadow-md">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center">
       <div class="flex items-center mb-4 sm:mb-0">
@@ -41,7 +27,6 @@
   </header>
 
   <main>
-
     <section class="px-6 py-12 text-center md:px-12 lg:text-left ">
       <div class="w-100 mx-auto sm:max-w-2xl md:max-w-3xl lg:max-w-5xl xl:max-w-7xl">
         <div class="grid items-center gap-12 lg:grid-cols-2">
@@ -91,28 +76,33 @@
   <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
        <!-- Item 1 -->
       <div class="hidden duration-700 ease-in-out" data-carousel-item>
-          <img id="dogImage" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-          <div id="dog-info"></div>
+          <img id="dogImage" class="dog-image absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+          <!-- <div id="dog-info"></div> -->
+          <div class="dogInfo"></div>
       </div>
       <!-- Item 2 -->
       <div class="hidden duration-700 ease-in-out" data-carousel-item>
-          <img id="dogImage" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-          <div id="dog-info"></div>
+          <img  class=" dog-image absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+          <div class="dogInfo"></div>
+
       </div>
       <!-- Item 3 -->
       <div class="hidden duration-700 ease-in-out" data-carousel-item>
-          <img id="dogImage" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-          <div id="dog-info"></div>
+          <img  class="dog-image absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+          <div class="dogInfo"></div>
+
       </div>
       <!-- Item 4 -->
       <div class="hidden duration-700 ease-in-out" data-carousel-item>
-          <img id="dogImage" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-          <div id="dog-info"></div>
+          <img  class=" dog-image absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+          <div class="dogInfo"></div>
+
       </div>
       <!-- Item 5 -->
       <div class="hidden duration-700 ease-in-out" data-carousel-item>
-          <img id="dogImage" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-          <div id="dog-info"></div>
+          <img class="dog-image absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+          <div class="dogInfo"></div>
+
       </div>
   </div>
   <!-- Slider indicators -->
@@ -149,6 +139,7 @@
             </figure>
             <div class="rounded-lg p-4 bg-white-700 flex flex-col">
               <div>
+
                 <div id="dog-info"></div>
               </div>
             </div>
