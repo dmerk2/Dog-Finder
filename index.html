@@ -12,17 +12,21 @@
 
 <body>
   <!-- Modal -->
-  <section class="fixed hidden inset-0 justify-center items-center z-50" id="modal">
-    <div class="bg-white border border-gray-500 max-w-sm p-3 rounded mx-auto">
-      <div class="flex justify-between font-bold mb-3 bg">
-        <h4 class="text-lg">Please Enter Valid Zip Code</h4>
-        <p id="x-btn" class="cursor-pointer hover:bg-red-300 rounded-full py-1 px-2">X</p>
+  <div class="fixed hidden inset-0 flex justify-center items-center z-50" id="modal">
+    <div class="bg-white border border-gray-300 max-w-md p-4 rounded-lg shadow-lg">
+      <div class="flex justify-between items-center pb-3 border-b border-gray-300">
+        <h4 class="text-lg font-semibold">Invalid Zip Code</h4>
+        <button id="x-btn" class="cursor-pointer hover:bg-red-300 rounded-full p-2">
+          <p class="h-5 w-5 text-gray-600">X</p>
+        </button>
       </div>
-      <div class="my-2">You entered an invalid zipcode. Please try again.</div>
+      <div class="my-3 text-gray-600">You entered an invalid zip code. Please double-check and try again.</div>
       <button id="close-modal"
-        class="hover:bg-red-300 py-1 px-2 rounded bg-white shadow-md border-gray-100 float-right">Close</button>
+        class="inline-block px-4 py-2 mt-2 text-sm font-semibold text-white bg-red-500 rounded-md shadow-md hover:bg-red-600 focus:outline-none focus:ring focus:ring-red-300">
+        Close
+      </button>
     </div>
-  </section>
+  </div>
 
   <header class="bg-gradient-to-b from-yellow-200 to-yellow-300 py-4 shadow-md">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center">
@@ -30,10 +34,12 @@
         <h1 class="text-2xl font-semibold">Dog Finder</h1>
       </div>
       <nav class="space-x-4">
-        <a href="./index.html" class="text-gray-600 hover:text-gray-800">Home</a>
-        <a href="./facts.html" class="text-gray-600 hover:text-gray-800">Dog Facts</a>
-        <a href="./about.html" class="text-gray-600 hover:text-gray-800">About Us</a>
-        <a href="./contact.html" class="text-gray-600 hover:text-gray-800">Contact</a>
+        <ul class="flex">
+          <li><a href="./index.html" class="text-gray-600 hover:text-gray-800 p-2">Home</a></li>
+          <li><a href="./facts.html" class="text-gray-600 hover:text-gray-800 p-2">Dog Facts</a></li>
+          <li><a href="./about.html" class="text-gray-600 hover:text-gray-800 p-2">About Us</a></li>
+          <li><a href="./contact.html" class="text-gray-600 hover:text-gray-800 p-2">Contact</a></li>
+        </ul>
       </nav>
     </div>
   </header>
@@ -117,28 +123,14 @@
 
       <div class="mt-16 border-t border-gray-100 pt-8 sm:flex sm:items-center sm:justify-between lg:mt-24">
         <ul class="flex flex-wrap justify-center gap-4 text-xs lg:justify-end">
-          <li>
-            <a href="#" class="text-gray-500 transition hover:opacity-75">
-              Terms & Conditions
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="text-gray-500 transition hover:opacity-75">
-              Privacy Policy
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="text-gray-500 transition hover:opacity-75">
-              Cookies
-            </a>
-          </li>
+          <li><a href="#" class="text-gray-500 transition hover:opacity-75">Terms & Conditions</a></li>
+          <li><a href="#" class="text-gray-500 transition hover:opacity-75">Privacy Policy</a></li>
+          <li><a href="#" class="text-gray-500 transition hover:opacity-75">Cookies</a></li>
         </ul>
 
         <ul class="mt-8 flex justify-center gap-6 sm:mt-0 lg:justify-end">
           <li>
-            <a href="#" rel="noreferrer" target="_blank" class="text-gray-700 transition hover:opacity-75">
+            <a href="#" rel="noreferrer" class="text-gray-700 transition hover:opacity-75">
               <span class="sr-only">Facebook</span>
 
               <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -150,7 +142,7 @@
           </li>
 
           <li>
-            <a href="#" rel="noreferrer" target="_blank" class="text-gray-700 transition hover:opacity-75">
+            <a href="#" rel="noreferrer" class="text-gray-700 transition hover:opacity-75">
               <span class="sr-only">Instagram</span>
 
               <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -162,7 +154,7 @@
           </li>
 
           <li>
-            <a href="#" rel="noreferrer" target="_blank" class="text-gray-700 transition hover:opacity-75">
+            <a href="#" rel="noreferrer" class="text-gray-700 transition hover:opacity-75">
               <span class="sr-only">Twitter</span>
 
               <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -173,7 +165,7 @@
           </li>
 
           <li>
-            <a href="#" rel="noreferrer" target="_blank" class="text-gray-700 transition hover:opacity-75">
+            <a href="#" rel="noreferrer" class="text-gray-700 transition hover:opacity-75">
               <span class="sr-only">GitHub</span>
 
               <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -185,7 +177,7 @@
           </li>
 
           <li>
-            <a href="#" rel="noreferrer" target="_blank" class="text-gray-700 transition hover:opacity-75">
+            <a href="#" rel="noreferrer" class="text-gray-700 transition hover:opacity-75">
               <span class="sr-only">Dribbble</span>
 
               <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
