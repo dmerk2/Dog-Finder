@@ -8,10 +8,9 @@
   background-position: 90%;
   background-image: url("https://www.maricopa.gov/ImageRepository/Document?documentID=84591");
   background-repeat: no-repeat;
-  background-size: cover; /* Adjust background-size to maintain aspect ratio */
+  background-size: cover;
   height: 500px;
 }
-
 
 #facts-hero {
   background-position: 70%;
@@ -33,3 +32,11 @@ main {
 footer {
   margin-top: auto;
 }
+
+button:hover, a:hover {
+  cursor: url("../images/paw-print.svg"), auto;
+}
+
+/* nav a:hover {
+  cursor: pointer;
+} */
