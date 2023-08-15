@@ -3,8 +3,11 @@ const baseUrl = "https://api.rescuegroups.org/v5";
 
 const searchButton = document.getElementById("search");
 const zipcodeInput = document.getElementById("zipcode");
-//const dogInfo = document.getElementById("dog-info");
-//const dogImage = document.getElementById("dogImage");
+const dogInfo = document.getElementById("dog-info");
+const dogImage = document.getElementById("dogImage");
+//var images= document.querySelectorAll("dog-image");
+//var dogInfo= document.querySelectorAll("dogInfo");
+//var image1 = document.querySelectorAll("dogImage1");
 
 const form = document.getElementById("search-form");
 
@@ -16,14 +19,15 @@ const xBtnModal = document.getElementById("x-btn");
 
 searchButton.addEventListener("click", async () => {
   const zipcode = zipcodeInput.value;
-  // Toggle Modal
-//   modal.classList.toggle("hidden");
-//   modal.classList.toggle("flex");
+  //localStorage.setItem("zipcode", zipcode);
+  //Toggle Modal
+  modal.classList.toggle("hidden");
+  modal.classList.toggle("flex");
 
   // If zip code is valid display the modal else display the search results
   if (isValidUSZipCode(zipcode)) {
-    // toggleModal();
-  } 
+    toggleModal();
+  }
 
   const requestData = {
     data: {
@@ -55,8 +59,6 @@ searchButton.addEventListener("click", async () => {
     console.log(data);
   } catch (error) {
     console.error("Error:", error);
-    // const resultDiv = document.getElementById('result');
-    // resultDiv.innerHTML = '<p>Invalid Zip Code</p>';
   }
 });
 
@@ -73,34 +75,43 @@ const toggleModal = () => {
 };
 
 function displayResults(results) {
-  var images= document.querySelectorAll("dog-image").src = "";
-  var dogInfo= document.querySelectorAll("dogInfo");
+  dogImage.src = "";
   dogInfo.innerHTML = "";
 
-  results.forEach((result, imgIndex) => {
-    //console.log(index);
+
+  results.forEach((result) => {
+
+    //imgIndex = 0;
+    //console.log(imgIndex);
+
     const imageUrl = result.attributes.pictureThumbnailUrl;
+    // Remove the parameter ?width=100 for better viewing and clarity on webpage
+    const baseURL = imageUrl.split("?")[0];
     const name = result.attributes.name;
     const breedPrimary = result.attributes.breedPrimary;
-    const ageGroup = result.attributes.ageGroup;
-    const adoptionFee = result.attributes.adoptionFeeString;
+    // If ageGroup displays undefined, display nothing
+    const ageGroup = result.attributes.ageGroup
+      ? result.attributes.ageGroup
+      : "";
+    // If adoptionFee displays undefined, display nothing
+    const adoptionFee = result.attributes.adoptionFeeString
+      ? result.attributes.adoptionFeeString
+      : "";
     const distance = result.attributes.distance;
 
-    var imgIndex = 0;
+    dogImage.src = baseURL;
+    dogInfo.innerHTML = `<h2 class="text-xl"><strong>${name}</strong></h2>
+    <p><strong>Breed:</strong> ${breedPrimary}</p>
+    <p><strong>Age Group:</strong> ${ageGroup}</p>
+    <p><strong>Adoption Fee:</strong> ${adoptionFee}</p>
+    <p><strong>Distance (miles):</strong> ${distance}</p>`;
     
 
-    //dogImage.src = imageUrl;
 
-    images.scr = imageUrl;
-   
-    
-    dogInfo.innerHTML = `<p><strong>${name}</strong></p><p><strong>Breed:</strong> ${breedPrimary}</p><p><strong>Age Group:</strong> ${ageGroup}</p><p><strong>Adoption Fee:</strong> ${adoptionFee}</p><p><strong>Distance (miles):</strong> ${distance}</p>`;
-    //i = 0; 1 < images[index].length; i++;
-      //images.src = imageURL(i);
-       
-    
 
-   
+
+
+
   });
 }
 
@@ -109,6 +120,5 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
 });
 
-//closeModal.addEventListener("click", toggleModal);
-//xBtnModal.addEventListener("click", toggleModal);
-
+closeModal.addEventListener("click", toggleModal);
+xBtnModal.addEventListener("click", toggleModal);
