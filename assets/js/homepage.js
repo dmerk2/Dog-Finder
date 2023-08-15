@@ -5,7 +5,13 @@ const searchButton = document.getElementById("search");
 const zipcodeInput = document.getElementById("zipcode");
 const dogInfo = document.getElementById("dog-info");
 const dogImage = document.getElementById("dogImage");
+//var images= document.querySelectorAll("dog-image");
+//var dogInfo= document.querySelectorAll("dogInfo");
+//var image1 = document.querySelectorAll("dogImage1");
+
 const form = document.getElementById("search-form");
+
+
 
 const modal = document.getElementById("modal");
 const closeModal = document.getElementById("close-modal");
@@ -13,8 +19,8 @@ const xBtnModal = document.getElementById("x-btn");
 
 searchButton.addEventListener("click", async () => {
   const zipcode = zipcodeInput.value;
-  // localStorage.setItem("zipcode", zipcode);
-  // Toggle Modal
+  //localStorage.setItem("zipcode", zipcode);
+  //Toggle Modal
   modal.classList.toggle("hidden");
   modal.classList.toggle("block");
 
@@ -45,7 +51,10 @@ searchButton.addEventListener("click", async () => {
       }
     );
 
+
     const data = await response.json();
+    console.log("data");
+    console.log(data.data);
     displayResults(data.data);
     console.log(data);
   } catch (error) {
@@ -69,7 +78,12 @@ function displayResults(results) {
   dogImage.src = "";
   dogInfo.innerHTML = "";
 
+
   results.forEach((result) => {
+
+    //imgIndex = 0;
+    //console.log(imgIndex);
+
     const imageUrl = result.attributes.pictureThumbnailUrl;
     // Remove the parameter ?width=100 for better viewing and clarity on webpage
     const baseURL = imageUrl.split("?")[0];
@@ -91,8 +105,16 @@ function displayResults(results) {
     <p><strong>Age Group:</strong> ${ageGroup}</p>
     <p><strong>Adoption Fee:</strong> ${adoptionFee}</p>
     <p><strong>Distance (miles):</strong> ${distance}</p>`;
+    
+
+
+
+
+
+
   });
 }
+
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
