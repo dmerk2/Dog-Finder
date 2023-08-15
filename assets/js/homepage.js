@@ -65,34 +65,67 @@ const toggleModal = () => {
   modal.classList.toggle("block");
 };
 
-function displayResults(results) {
-  dogImage.src = "";
-  dogInfo.innerHTML = "";
+const createDogImage = (baseURL, name) => {
+  const dogImage = document.createElement("img");
+  dogImage.src = baseURL;
+  dogImage.alt = name;
+  dogImage.classList.add("dogImage", "mr-4");
+  return dogImage;
+};
 
-  results.forEach((result) => {
-    const imageUrl = result.attributes.pictureThumbnailUrl;
-    // Remove the parameter ?width=100 for better viewing and clarity on webpage
-    const baseURL = imageUrl.split("?")[0];
-    const name = result.attributes.name;
-    const breedPrimary = result.attributes.breedPrimary;
-    // If ageGroup displays undefined, display nothing
-    const ageGroup = result.attributes.ageGroup
-      ? result.attributes.ageGroup
-      : "";
-    // If adoptionFee displays undefined, display nothing
-    const adoptionFee = result.attributes.adoptionFeeString
-      ? result.attributes.adoptionFeeString
-      : "";
-    const distance = result.attributes.distance;
-
-    dogImage.src = baseURL;
-    dogInfo.innerHTML = `<h2 class="text-xl"><strong>${name}</strong></h2>
+// Create div for dog info
+const createDogInfo = (name, breedPrimary, ageGroup, adoptionFee, distance) => {
+  const dogInfo = document.createElement("div");
+  dogInfo.innerHTML = `<h2 class="text-xl"><strong>${name}</strong></h2>
     <p><strong>Breed:</strong> ${breedPrimary}</p>
     <p><strong>Age Group:</strong> ${ageGroup}</p>
     <p><strong>Adoption Fee:</strong> ${adoptionFee}</p>
     <p><strong>Distance (miles):</strong> ${distance}</p>`;
+  dogInfo.classList.add("flex-1");
+  return dogInfo;
+};
+
+const createDogResult = (result) => {
+  const imageUrl = result.attributes.pictureThumbnailUrl;
+  // Remove the width=100 parameter from the image URL
+  const baseURL = imageUrl.split("?")[0];
+  const name = result.attributes.name;
+  const breedPrimary = result.attributes.breedPrimary;
+  // Display an empty string if results are falsey
+  const ageGroup = result.attributes.ageGroup || "";
+  const adoptionFee = result.attributes.adoptionFeeString || "";
+  const distance = result.attributes.distance;
+
+  // Create elements for the image and data
+  const dogImage = createDogImage(baseURL, name);
+  const dogInfo = createDogInfo(
+    name,
+    breedPrimary,
+    ageGroup,
+    adoptionFee,
+    distance
+  );
+
+  // Creating the style of the dog result container
+  const dogResultContainer = document.createElement("div");
+  dogResultContainer.classList.add("dog-result", "flex", "items-center");
+  dogResultContainer.appendChild(dogImage);
+  dogResultContainer.appendChild(dogInfo);
+
+  return dogResultContainer;
+};
+
+// Display the results to the webpage
+const displayResults = (results) => {
+  const dogContainer = document.getElementById("dog-container");
+  dogContainer.innerHTML = "";
+
+  // Loop through each result and create a dog result container
+  results.forEach((result) => {
+    const dogResultContainer = createDogResult(result);
+    dogContainer.appendChild(dogResultContainer);
   });
-}
+};
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();

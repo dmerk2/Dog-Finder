@@ -25,6 +25,10 @@ h2 {
   font-family: Helvetica, sans-serif;
 }
 
+p {
+  font-family: 'Montserrat', sans-serif;
+}
+
 main {
   min-height: 80vh;
 }
@@ -33,10 +37,46 @@ footer {
   margin-top: auto;
 }
 
-button:hover, a:hover {
+button:hover,
+a:hover {
   cursor: url("../images/paw-print.svg"), auto;
 }
 
-/* nav a:hover {
-  cursor: pointer;
-} */
+.dog-result {
+  display: flex;
+  align-items: center;
+  margin: 20px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.dog-result:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.dogImage {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+
+.dog-info {
+  flex: 1;
+}
+
+.dog-info h2 {
+  margin: 0 0 10px;
+  font-size: 1.5rem;
+  color: #333333;
+}
+
+.dog-info p {
+  margin: 0;
+  color: #777777;
+}
