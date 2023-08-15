@@ -36,24 +36,32 @@ form.addEventListener("submit", (e) => {
       const trainability = data[0].trainability;
 
       dogPicture.src = imageUrl;
-      breedTitle.innerHTML = `<h2 class="text-3xl pb-2"><strong>${breed}</strong> </h2>`;
-      dogInfo.innerHTML = `
-            <p><strong>Max height female:</strong> ${maxHeightFemale} in.</p>
-            <p><strong>Max height male:</strong> ${maxHeightMale} in.</p>
-            <p><strong>Max weight female:</strong> ${maxWeightFemale} lb.</p>
-            <p><strong>Max weight male:</strong> ${maxWeightMale} lb.</p>
-            <p><strong>Max life expectancy:</strong> ${maxLifeExpectancy} years</p>
-            <p><strong>Good with children:</strong> ${goodChildren}* </p>
-            <p><strong>Good with other dogs:</strong> ${goodDogs}* </p>
-            <p><strong>Good with strangers:</strong> ${goodStrangers}* </p>
-            <p><strong>Playfulness:</strong> ${playfulness}* </p>
-            <p><strong>Trainability:</strong> ${trainability}* </p>
+      breedTitle.innerHTML = `<h2 class="text-3xl pb-2 font-semibold text-gray-800">${breed}</h2>`;
 
-            <p> (*) Rating from 1-5 with 1 being the lowest and 5 being the highest.</p>
-        `;
+      dogInfo.innerHTML = `
+  <div class="space-y-2 text-gray-700">
+    <p><strong class="text-gray-900">Max Height (Female):</strong> ${maxHeightFemale} in</p>
+    <p><strong class="text-gray-900">Max Height (Male):</strong> ${maxHeightMale} in</p>
+    <p><strong class="text-gray-900">Max Weight (Female):</strong> ${maxWeightFemale} lb</p>
+    <p><strong class="text-gray-900">Max Weight (Male):</strong> ${maxWeightMale} lb</p>
+    <p><strong class="text-gray-900">Max Life Expectancy:</strong> ${maxLifeExpectancy} years</p>
+    <p><strong class="text-gray-900">Good with Children:</strong> ${goodChildren}</p>
+    <p><strong class="text-gray-900">Good with Other Dogs:</strong> ${goodDogs}</p>
+    <p><strong class="text-gray-900">Good with Strangers:</strong> ${goodStrangers}</p>
+    <p><strong class="text-gray-900">Playfulness:</strong> ${playfulness}</p>
+    <p><strong class="text-gray-900">Trainability:</strong> ${trainability}</p>
+  </div>
+  <p class="mt-2 text-gray-600">(*) Ratings from 1 (low) to 5 (high)</p>
+`;
     })
     .catch((error) => {
       console.error("Error fetching dog data:", error);
-      errorMessage.innerHTML = `<h2 class="text-4xl text-center bg-blue-400 text-white py-3 shadow-lg rounded">No breed known by that name. Please check your spelling and try again.</h2>`;
+      errorMessage.innerHTML = `
+      <div class="flex justify-center items-center">
+        <h2 class="text-2xl text-center bg-red-500 text-white py-3 px-6 shadow-lg rounded">
+          No breed known by that name. Please check your spelling and try again.
+        </h2>
+      </div>
+    `;
     });
 });

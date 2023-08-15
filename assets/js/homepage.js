@@ -16,7 +16,7 @@ searchButton.addEventListener("click", async () => {
   // localStorage.setItem("zipcode", zipcode);
   // Toggle Modal
   modal.classList.toggle("hidden");
-  modal.classList.toggle("flex");
+  modal.classList.toggle("block");
 
   // If zip code is valid display the modal else display the search results
   if (isValidUSZipCode(zipcode)) {
@@ -62,7 +62,7 @@ const isValidUSZipCode = (zipcode) => {
 // Function to close modal
 const toggleModal = () => {
   modal.classList.toggle("hidden");
-  modal.classList.toggle("flex");
+  modal.classList.toggle("block");
 };
 
 function displayResults(results) {
