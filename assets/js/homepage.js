@@ -133,14 +133,14 @@ const displayResults = (results) => {
     dogContainer.appendChild(dogResultContainer);
 
     // Save the current dog result to localStorage
-    // dogResults.push({
-    //   name: result.attributes.name,
-    //   breedPrimary: result.attributes.breedPrimary,
-    //   ageGroup: result.attributes.ageGroup || "",
-    //   adoptionFee: result.attributes.adoptionFeeString || "",
-    //   distance: result.attributes.distance,
-    // });
-    dogResults.push(result);
+    dogResults.push({
+      name: result.attributes.name,
+      breedPrimary: result.attributes.breedPrimary,
+      ageGroup: result.attributes.ageGroup || "",
+      adoptionFee: result.attributes.adoptionFeeString || "",
+      distance: result.attributes.distance,
+    });
+    // dogResults.push(result);
   });
 
   // Save the updated dogResults array to localStorage
