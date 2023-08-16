@@ -10,10 +10,18 @@ const form = document.getElementById("search-form");
 const modal = document.getElementById("modal");
 const closeModal = document.getElementById("close-modal");
 const xBtnModal = document.getElementById("x-btn");
+const dogResults = JSON.parse(localStorage.getItem("dogResults")) || [];
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Retrieve dogResults from localStorage
+  const dogResults = JSON.parse(localStorage.getItem("dogResults")) || [];
+
+  // Call displayResults with the retrieved dogResults
+  displayResults(dogResults);
+});
 
 searchButton.addEventListener("click", async () => {
   const zipcode = zipcodeInput.value;
-  // localStorage.setItem("zipcode", zipcode);
   // Toggle Modal
   modal.classList.toggle("hidden");
   modal.classList.toggle("block");
@@ -115,7 +123,6 @@ const createDogResult = (result) => {
   return dogResultContainer;
 };
 
-// Display the results to the webpage
 const displayResults = (results) => {
   const dogContainer = document.getElementById("dog-container");
   dogContainer.innerHTML = "";
@@ -124,7 +131,20 @@ const displayResults = (results) => {
   results.forEach((result) => {
     const dogResultContainer = createDogResult(result);
     dogContainer.appendChild(dogResultContainer);
+
+    // Save the current dog result to localStorage
+    // dogResults.push({
+    //   name: result.attributes.name,
+    //   breedPrimary: result.attributes.breedPrimary,
+    //   ageGroup: result.attributes.ageGroup || "",
+    //   adoptionFee: result.attributes.adoptionFeeString || "",
+    //   distance: result.attributes.distance,
+    // });
+    dogResults.push(result);
   });
+
+  // Save the updated dogResults array to localStorage
+  localStorage.setItem("dogResults", JSON.stringify(dogResults));
 };
 
 form.addEventListener("submit", (e) => {
