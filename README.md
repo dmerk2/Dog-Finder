@@ -6,6 +6,7 @@
 - [Description](#description)
 - [Technologies-Used](#technologies-used)
 - [Deployed-URL](#deployed-url)
+- [Usage](#usage)
 - [Credits](#credits)
 - [License](#license)
 
@@ -20,6 +21,10 @@ SO THAT I can provide a loving home to a rescued dog
 ```md
 Welcome to Dog Finder, a user-friendly and intuitive platform designed to help you find your ideal four-legged friend. Whether you're seeking a loyal hiking partner, a playful family addition, or a cozy couch buddy, Dog Finder is here to simplify your dog adoption journey.
 ```
+
+## Usage
+
+![video demo](./assets/images/Dog-Finder-App.gif)
 
 ## Technologies Used
 ```md
