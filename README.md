@@ -19,6 +19,11 @@ SO THAT I can provide a loving home to a rescued dog
 ## Description
 ```md
 Welcome to Dog Finder, a user-friendly and intuitive platform designed to help you find your ideal four-legged friend. Whether you're seeking a loyal hiking partner, a playful family addition, or a cozy couch buddy, Dog Finder is here to simplify your dog adoption journey.
+
+
+https://github.com/dmerk2/Dog-Finder/assets/132311127/a3b82d17-b1f2-4f42-9a4f-9a4006191772
+
+
 ```
 
 ## Technologies Used
