@@ -10,11 +10,11 @@ const form = document.getElementById("search-form");
 const modal = document.getElementById("modal");
 const closeModal = document.getElementById("close-modal");
 const xBtnModal = document.getElementById("x-btn");
-const dogResults = JSON.parse(localStorage.getItem("dogResults")) || [];
+const dogResults = JSON.parse(localStorage.getItem("dogResultsV2")) || [];
 
 document.addEventListener("DOMContentLoaded", () => {
   // Retrieve dogResults from localStorage
-  const dogResults = JSON.parse(localStorage.getItem("dogResults")) || [];
+  const dogResults = JSON.parse(localStorage.getItem("dogResultsV2")) || [];
 
   // Call displayResults with the retrieved dogResults
   displayResults(dogResults);
@@ -55,6 +55,8 @@ searchButton.addEventListener("click", async () => {
 
     const data = await response.json();
     displayResults(data.data);
+    // Save the updated dogResults array to localStorage
+    localStorage.setItem("dogResultsV2", JSON.stringify(dogResults));
     console.log(data);
   } catch (error) {
     console.error("Error:", error);
@@ -133,18 +135,15 @@ const displayResults = (results) => {
     dogContainer.appendChild(dogResultContainer);
 
     // Save the current dog result to localStorage
-    dogResults.push({
-      name: result.attributes.name,
-      breedPrimary: result.attributes.breedPrimary,
-      ageGroup: result.attributes.ageGroup || "",
-      adoptionFee: result.attributes.adoptionFeeString || "",
-      distance: result.attributes.distance,
-    });
-    // dogResults.push(result);
+    // dogResults.push({
+    //   name: result.attributes.name,
+    //   breedPrimary: result.attributes.breedPrimary,
+    //   ageGroup: result.attributes.ageGroup || "",
+    //   adoptionFee: result.attributes.adoptionFeeString || "",
+    //   distance: result.attributes.distance,
+    // });
+    dogResults.push(result);
   });
-
-  // Save the updated dogResults array to localStorage
-  localStorage.setItem("dogResults", JSON.stringify(dogResults));
 };
 
 form.addEventListener("submit", (e) => {
